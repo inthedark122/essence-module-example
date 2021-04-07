@@ -1,13 +1,23 @@
 [
     {
         "class": {
-            "cl_dataset": 1,
-            "cl_final": 1,
-            "cv_description": "Test Module",
-            "cv_name": "New Module",
-            "cv_type": "NEW_MODULE"
+            "cl_dataset": 0,
+            "cl_final": 0,
+            "cv_description": "Example for presentation",
+            "cv_name": "Example for presentation",
+            "cv_type": "PRESENTATION"
         },
-        "class_attributes": [],
+        "class_attributes": [
+            {
+                "ck_attr": "getglobal"
+            },
+            {
+                "ck_attr": "setglobal"
+            },
+            {
+                "ck_attr": "childs"
+            }
+        ],
         "attributes": [],
         "class_hierarchy": {
             "class_parent": [
