@@ -1,0 +1,35 @@
+{
+  "name": "essence-module-example",
+  "version": "2.2.0",
+  "private": true,
+  "scripts": {
+    "start": "constructor-scripts start",
+    "initialize": "constructor-scripts init",
+    "postinstall": "yarn constructor-dll-build",
+    "build": "constructor-scripts build",
+    "zip": "constructor-scripts zip",
+    "deploy": "constructor-scripts deploy"
+  },
+  "eslint": {
+    "extends": "@essence-community/eslint-config-react"
+  },
+  "dependencies": {
+    "@essence-community/constructor-dll": "^2.6.0",
+    "@essence-community/constructor-scripts": "^2.6.5",
+    "@essence-community/constructor-share": "^2.6.5",
+    "@material-ui/core": "^4.11.3",
+    "mobx": "^6.1.8",
+    "mobx-react": "^7.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@essence-community/eslint-config-react": "^2.5.3",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "eslint": "^7.23.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^4.2.4"
+  }
+}
