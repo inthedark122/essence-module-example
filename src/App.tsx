@@ -6,16 +6,18 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
+import {parseMemoize} from "@essence-community/constructor-share/utils";
 
 const App: React.FC<IClassProps> = (props: IClassProps) => {
     const {bc, pageStore} = props;
+    const parser = parseMemoize(bc.getglobal);
 
     return useObserver(() => (
         <Card>
             <CardContent>
                 <Typography>Глобальная переменная: {bc.getglobal}</Typography>
                 {bc.getglobal ? (
-                    <Typography>Глобальное значение: {pageStore.globalValues.get(bc.getglobal)}</Typography>
+                    <Typography>Глобальное значение: {parser.runer(pageStore.globalValues)}</Typography>
                 ) : null}
             </CardContent>
             <CardActions>
