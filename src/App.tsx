@@ -24,6 +24,12 @@ const App: React.FC<IClassProps> = (props: IClassProps) => {
     const parser = parseMemoize(bc.getglobal);
     const classes = useStyles();
 
+    function handleClick(event: React.SyntheticEvent) {
+        event.preventDefault();
+
+        pageStore.applicationStore.redirectToAction("2", {});
+    }
+
     return useObserver(() => (
         <Card className={classes.root}>
             <CardContent>
@@ -33,7 +39,7 @@ const App: React.FC<IClassProps> = (props: IClassProps) => {
                 ) : null}
             </CardContent>
             <CardActions>
-                <Button size="small" color="secondary">
+                <Button onClick={handleClick} size="small" color="secondary">
                     Перейти на страницы
                 </Button>
             </CardActions>
