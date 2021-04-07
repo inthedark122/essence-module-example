@@ -1,6 +1,7 @@
 import * as React from "react";
 import {useObserver} from "mobx-react";
-import {IClassProps} from "@essence-community/constructor-share/types";
+import {makeStyles} from "@material-ui/core/styles";
+import {IClassProps, IEssenceTheme} from "@essence-community/constructor-share/types";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
@@ -8,12 +9,23 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import {parseMemoize} from "@essence-community/constructor-share/utils";
 
+const useStyles = makeStyles(
+    (theme: IEssenceTheme) => ({
+        root: {
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.type === "dark" ? theme.palette.common.white : theme.palette.common.black,
+        },
+    }),
+    {name: "PresentationApp"},
+);
+
 const App: React.FC<IClassProps> = (props: IClassProps) => {
     const {bc, pageStore} = props;
     const parser = parseMemoize(bc.getglobal);
+    const classes = useStyles();
 
     return useObserver(() => (
-        <Card>
+        <Card className={classes.root}>
             <CardContent>
                 <Typography>Глобальная переменная: {bc.getglobal}</Typography>
                 {bc.getglobal ? (
@@ -21,7 +33,7 @@ const App: React.FC<IClassProps> = (props: IClassProps) => {
                 ) : null}
             </CardContent>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" color="secondary">
                     Перейти на страницы
                 </Button>
             </CardActions>
